@@ -1,0 +1,35 @@
+/* p
+{
+    color:green;
+}
+label
+{
+   color:orange;
+}
+
+button
+{
+    align-items: center;
+    
+    color:white;
+    background-color: royalblue;
+}
+div
+{
+    border-style: solid;
+    padding: 2px;
+}
+
+ */
+#loginform {
+  border: 1px solid white;
+  width: 40%;
+  padding: 20px;
+  margin: auto;
+  margin-top: 10%;
+  background-color:rgb(221, 221, 211);
+  box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
+}
+#ip {
+    height: 44px;
+}

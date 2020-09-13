@@ -1,0 +1,93 @@
+<p appHighlight [changeUi]="showme">dummy works!</p>
+<p>{{ "hEllo frOm AngUlar" }}</p>
+<p>{{ "hEllo frOm AngUlar" | uppercase }}</p>
+<p>{{ "hEllo frOm AngUlar" | lowercase }}</p>
+<p>{{ "hEllo frOm AngUlar" | titlecase }}</p>
+<p>{{ now | date}}</p>
+<p>{{ sampleData | json | uppercase}}</p>
+<p>{{ hello | language}}</p>
+<div>
+  <!--output '$0.26'-->
+  <p>A: {{a | currency}}</p>
+
+  <!--output 'CA$0.26'-->
+  <p>A: {{a | currency:'INR'}}</p>
+
+  <!--output 'CAD0.26'-->
+  <p>A: {{a | currency:'CAD':'code'}}</p>
+
+  <!--output 'CA$0,001.35'-->
+  <p>B: {{b | currency:'CAD':'symbol':'4.2-2'}}</p>
+
+  <!--output '$0,001.35'-->
+  <p>B: {{b | currency:'CAD':'symbol-narrow':'4.2-2'}}</p>
+
+  <!--output '0 001,35 CA$'-->
+  <p>B: {{b | currency:'CAD':'symbol':'4.2-2':'fr'}}</p>
+
+  <!--output 'CLP1' because CLP has no cents-->
+  <p>B: {{b | currency:'CLP'}}</p>
+</div>
+<div class="card" [ngSwitch]="hi">
+  <div class="card-body" *ngSwitchCase="'switch one'">
+    <p>hi from Switch 1</p>
+  </div>
+  <div class="card-body" *ngSwitchCase="'switch two'">
+    <p>hi from Switch 2</p>
+  </div>
+  <ng-container *ngSwitchDefault>
+    <p>hi from Switch default</p>
+    <p>hi from Switch default</p>
+  </ng-container>
+</div>
+<ng-template #loading>
+  <button class="tab-button" (click)="login()">{{ loginText }}</button>
+  <button class="tab-button" (click)="signUp()">{{ signUpText }}</button>
+</ng-template>
+<div class="lessons-list" *ngIf="lessons; else loading">...</div>
+<input type="text" [(ngModel)]="hi" />
+
+<div class="card" *appNot="true">
+  <div class="card-body">
+    <p>custom structural directive</p>
+  </div>
+</div>
+<input [type]="controlType" [value]="hi" />
+<button class="btn btn-secondary" (click)="showHi()">showHi</button>
+<div class="card" *ngIf="!showme">
+  <div class="card-body">
+    <p>ng if directives//structural</p>
+  </div>
+</div>
+
+<div class="card" [hidden]="showme">
+  <div class="card-body">
+    <p>hidden directives ///attribute</p>
+  </div>
+</div>
+
+<div class="card" [ngStyle]="{ backgroundColor: showme ? 'blue' : 'red' }">
+  <div class="card-body">
+    <p>ngStyle directives ///attribute</p>
+  </div>
+</div>
+
+<div
+  class="card text-white mb-3"
+  [ngClass]="{ 'bg-secondary': showme, 'bg-primary': !showme }"
+>
+  <div class="card-body">
+    <p>ngClass directives ///attribute</p>
+  </div>
+</div>
+
+<div
+  class="card mb-3"
+  *ngFor="let data of sample; index as i"
+  [ngClass]="{ 'bg-secondary': data % 2 === 0, 'bg-primary': data % 2 === 1 }"
+>
+  <div class="card-body">
+    <p>ngFor directives {{ data }} ///structural</p>
+    <button class="btn btn-danger" (click)="delDiv(i)">delete</button>
+  </div>
+</div>

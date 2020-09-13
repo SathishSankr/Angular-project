@@ -1,0 +1,48 @@
+<!-- <div class="card" *ngFor="let data of comments; index as j">
+  <div class="card-body">
+    <p>{{ data.body }}</p>
+    <p>{{ data.id }}</p>
+  </div>
+</div>
+//array methods in js -->
+<div class="pagination-controls">
+  <button class="page-link" (click)="setPage(1)"><<</button>
+  <button class="page-link" (click)="setPage(page-1)"><</button>
+  <button
+    class="page-link"
+    (click)="setPage(i)"
+    *ngFor="let i of buttons"
+  >
+    {{ i }}
+  </button>
+  <button class="page-link" (click)="setPage(page+1)">></button>
+  <button class="page-link" (click)="setPage(lastPage)">>></button>
+  <select id="page-size" name="page-size" (change)="changePageSize($event)">
+    <option [value]="options" *ngFor="let options of pageSizeOptions">
+      {{ options }}
+    </option>
+  </select>
+  <label>page: {{page + ', lastPage: ' + lastPage}} </label>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>postId</th>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of filteredComments; index as ind">
+      <td>{{ data.postId }}</td>
+      <td>
+        <a (click)="showView(ind)" routerLink="/pagination">{{ data.id }}</a>
+      </td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.email }}</td>
+      <td appHighlight>{{ data.body }}</td>
+    </tr>
+  </tbody>
+</table>
