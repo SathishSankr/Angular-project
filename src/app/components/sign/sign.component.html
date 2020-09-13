@@ -3,12 +3,12 @@
     <label
       for="colFormLabelLg"
       class="col-sm-2 col-form-label col-form-label-lg font-weight-bold"
-      >SignUp:</label
+      >{{ "SignUp" | language }}:</label
     >
   </div>
   <div class="form-group">
     <h4 class="font-weight-bold">
-      <i class="fas fa-user-plus"></i> User Name:
+      <i class="fas fa-user-plus"></i> {{ "User Name" | language }}:
     </h4>
     <input
       id="ip"
@@ -20,7 +20,9 @@
   </div>
 
   <div class="form-group">
-    <h4 class="font-weight-bold"><i class="fas fa-unlock"></i> Password:</h4>
+    <h4 class="font-weight-bold">
+      <i class="fas fa-unlock"></i>{{ "Password" | language }}:
+    </h4>
     <div class="input-group">
       <input
         id="ip"
@@ -45,7 +47,7 @@
   </div>
   <div class="form-group">
     <h4 class="font-weight-bold">
-      <i class="fas fa-unlock"></i> Re-type Password:
+      <i class="fas fa-unlock"></i> {{ "Re-type password" | language }}:
     </h4>
     <div class="input-group">
       <input
@@ -73,7 +75,11 @@
   <label for="colFormLabelLg" *ngIf="!show">Password does not match</label>
 
   <div class="text-right">
-    <button class="btn btn-success mr-3" (click)="loginFun()">Sign in</button>
-    <button class="btn btn-danger" (click)="cancelFun()">Cancel</button>
+    <button class="btn btn-success mr-3" (click)="loginFun()">
+      {{ "Sign In" | language }}
+    </button>
+    <button class="btn btn-danger" (click)="cancelFun()">
+      {{ "Cancel" | language }}
+    </button>
   </div>
 </div>
